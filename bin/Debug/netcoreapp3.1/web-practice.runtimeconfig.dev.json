@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\tenza\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\tenza\\.nuget\\packages"
+    ]
+  }
+}
