@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\DevTools\\incamp\\web-practice\\web-practice.csproj",
+      "projectUniqueName": "d:\\devs\\incamp\\csharp-web-server\\web-practice.csproj",
       "projectName": "web-practice",
-      "projectPath": "D:\\DevTools\\incamp\\web-practice\\web-practice.csproj",
+      "projectPath": "d:\\devs\\incamp\\csharp-web-server\\web-practice.csproj",
       "packagesPath": "C:\\Users\\tenza\\.nuget\\packages\\",
-      "outputPath": "D:\\DevTools\\incamp\\web-practice\\obj\\",
+      "outputPath": "d:\\devs\\incamp\\csharp-web-server\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\tenza\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -59,7 +59,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
       }
     }
   }

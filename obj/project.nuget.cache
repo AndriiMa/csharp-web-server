@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Hv6rK4ZctzOs1evrjfiSCIzCqVhPRit904rwLqt/ELuiFtxqxlR7935ovy635S/R4WnKiQWO2rcUnXvrd7Rh3Q==",
+  "dgSpecHash": "kCSik6N6Kln1iPzquqWYKfXz7/AOnOVsGUWJuuHGZpXeIIgWDkskTrK/tWuosdZD7DOUj23Bm8RYTj3F3bHe0g==",
   "success": true,
-  "projectFilePath": "D:\\DevTools\\incamp\\web-practice\\web-practice.csproj",
+  "projectFilePath": "D:\\devs\\incamp\\csharp-web-server\\web-practice.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

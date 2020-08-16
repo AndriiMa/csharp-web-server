@@ -17,7 +17,15 @@ namespace web_practice
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
 
+        private Random rand = new Random();
         private Phrases phrases = new Phrases();
+
+        private String[] url = {
+            "http://localhost:5001",
+            "http://localhost:5002",
+            "http://localhost:5003",
+            "http://localhost:5004",
+        }; 
 
         public void ConfigureServices(IServiceCollection services)
         {
@@ -37,36 +45,42 @@ namespace web_practice
             {
                 endpoints.MapGet("/", async context =>
                 {
+                    context.Response.ContentType = "text/html; charset=utf-8";
                     context.Response.Headers["InCamp-Student"] = "Andrew Maslyuk";
                     await context.Response.WriteAsync("Hello World!");
                 });
 
                 endpoints.MapGet("/who", async context =>
                 {
+                    context.Response.ContentType = "text/html; charset=utf-8";
                     context.Response.Headers["InCamp-Student"] = "Andrew Maslyuk";
                     await context.Response.WriteAsync(phrases.GetRandomWho());
                 });
 
                 endpoints.MapGet("/how", async context =>
                 {
+                    context.Response.ContentType = "text/html; charset=utf-8";
                     context.Response.Headers["InCamp-Student"] = "Andrew Maslyuk";
                     await context.Response.WriteAsync(phrases.GetRandomHow());
                 });
 
                 endpoints.MapGet("/does", async context =>
                 {
+                    context.Response.ContentType = "text/html; charset=utf-8";
                     context.Response.Headers["InCamp-Student"] = "Andrew Maslyuk";
                     await context.Response.WriteAsync(phrases.GetRandomDoes());
                 });
 
                 endpoints.MapGet("/what", async context =>
                 {
+                    context.Response.ContentType = "text/html; charset=utf-8";
                     context.Response.Headers["InCamp-Student"] = "Andrew Maslyuk";
                     await context.Response.WriteAsync(phrases.GetRandomWhat());
                 });
 
                 endpoints.MapGet("/quote", async context =>
                 {
+                    context.Response.ContentType = "text/html; charset=utf-8";
                     context.Response.Headers["InCamp-Student"] = "Andrew Maslyuk";
                     await context.Response.WriteAsync(phrases.GetRandomWho() + " " +
                     phrases.GetRandomHow() + " " +
@@ -76,21 +90,26 @@ namespace web_practice
 
                 endpoints.MapGet("/incamp18-quote", async context =>
                 {
+                    context.Response.ContentType = "text/html; charset=utf-8";
                     context.Response.Headers["InCamp-Student"] = "Andrew Maslyuk";
                     await context.Response.WriteAsync( 
-                        GetIncampWord(5001, "who") + "\n" +
-                        GetIncampWord(5002, "how") + "\n" +
-                        GetIncampWord(5003, "does") + "\n" +
-                        GetIncampWord(5003, "what") + "\n");
+                        GetIncampWord(GetRandomUrl(), "who") + "<br>" +
+                        GetIncampWord(GetRandomUrl(), "how") + "<br>" +
+                        GetIncampWord(GetRandomUrl(), "does") + "<br>" +
+                        GetIncampWord(GetRandomUrl(), "what") + "<br>");
                 });
 
             });
         }
 
-        private static String GetIncampWord(int port, string wordType)
+        private String GetRandomUrl(){
+            return url[rand.Next(url.Length)]; 
+        }
+
+        private static String GetIncampWord(string url, string wordType)
         {
 
-            WebResponse response = WebRequest.Create($"http://546906f46143.ngrok.io:{port}/{wordType}").GetResponse();
+            WebResponse response = WebRequest.Create($"{url}/{wordType}").GetResponse();
 
             String internName = response.Headers.GetValues("InCamp-Student").First();
             String incampWord = "";
