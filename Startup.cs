@@ -91,9 +91,7 @@ namespace web_practice
 
             });
 
-        }
-
-        
+        }             
 
         private String GetPhrase(StudentPhraseDto[] studentPhrases)
         {

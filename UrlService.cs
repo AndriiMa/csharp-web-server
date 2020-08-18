@@ -6,9 +6,9 @@ namespace web_practice
     public class UrlService
     {
 
-        private Random rand = new Random();
+        private static Random rand = new Random();
 
-        private String[] url = {
+        private static String[] url = {
              "http://d0165c8e5358.ngrok.io",
               "http://12f1a14e7e50.ngrok.io",
                "http://4c1449a93861.ngrok.io",
@@ -23,7 +23,7 @@ namespace web_practice
                         "http://67e5aa89deb6.ngrok.io",
                          "http://8a2f59ef9085.ngrok.io"};
 
-        public String GetRandomUrl(){
+        public static String GetRandomUrl(){
              return url[rand.Next(url.Length)]; 
         }
     }
