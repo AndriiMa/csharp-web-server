@@ -1,6 +1,6 @@
 using System;
 using System.Net;
-using System.Text;
+using System.Linq;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
@@ -86,14 +86,29 @@ namespace web_practice
                     context.Response.ContentType = "text/html; charset=utf-8";
                     context.Response.Headers["InCamp-Student"] = "Andrew Maslyuk";
                     await context.Response.WriteAsync(
-                        "");
+                       await GetIncampQuote());
                 });
 
             });
 
-        }             
+        }
 
-        private String GetPhrase(StudentPhraseDto[] studentPhrases)
+        private async Task<String> GetIncampQuote()
+        {
+
+            List<WebResponse> responses = await printStrategy.GetIncampResponse();
+            List<StudentPhraseDto> studentPhrases = responses.Select(resp =>
+            studentPhraseMapper.mapResponseToStudentPhraseDto(resp))
+            .ToList();
+
+            String result = "";
+
+            result += (GetPhrase(studentPhrases) + GetResponseInfo(studentPhrases));
+
+            return result;
+        }
+
+        private String GetPhrase(List<StudentPhraseDto> studentPhrases)
         {
             String result = "";
 
@@ -106,7 +121,7 @@ namespace web_practice
             return result;
         }
 
-        private String GetResponseInfo(StudentPhraseDto[] studentPhrases)
+        private String GetResponseInfo(List<StudentPhraseDto> studentPhrases)
         {
             String result = "";
 
