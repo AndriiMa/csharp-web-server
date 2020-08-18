@@ -17,15 +17,8 @@ namespace web_practice
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
 
-        private Random rand = new Random();
         private Phrases phrases = new Phrases();
-
-        private String[] url = {
-            "http://localhost:5001",
-            "http://localhost:5002",
-            "http://localhost:5003",
-            "http://localhost:5004",
-        }; 
+        private IPrintPhraseStrategy printStrategy;
 
         public void ConfigureServices(IServiceCollection services)
         {
@@ -92,34 +85,11 @@ namespace web_practice
                 {
                     context.Response.ContentType = "text/html; charset=utf-8";
                     context.Response.Headers["InCamp-Student"] = "Andrew Maslyuk";
-                    await context.Response.WriteAsync( 
-                        GetIncampWord(GetRandomUrl(), "who") + "<br>" +
-                        GetIncampWord(GetRandomUrl(), "how") + "<br>" +
-                        GetIncampWord(GetRandomUrl(), "does") + "<br>" +
-                        GetIncampWord(GetRandomUrl(), "what") + "<br>");
+                    await context.Response.WriteAsync(
+                            "Phrase");
                 });
 
             });
-        }
-
-        private String GetRandomUrl(){
-            return url[rand.Next(url.Length)]; 
-        }
-
-        private static String GetIncampWord(string url, string wordType)
-        {
-
-            WebResponse response = WebRequest.Create($"{url}/{wordType}").GetResponse();
-
-            String internName = response.Headers.GetValues("InCamp-Student").First();
-            String incampWord = "";
-
-            using (var read = new System.IO.StreamReader(response.GetResponseStream(), UTF8Encoding.UTF8))
-            {
-                incampWord += read.ReadToEnd();
-            }
-
-            return "Student: " + internName + "\t Word type: " + wordType + "\t Word: " + incampWord;
         }
     }
 }
