@@ -2,7 +2,6 @@ using System;
 using System.Net;
 using System.Text;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -18,6 +17,7 @@ namespace web_practice
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
 
         private Phrases phrases = new Phrases();
+        private StudentPhraseMapper studentPhraseMapper = new StudentPhraseMapper();
         private IPrintPhraseStrategy printStrategy;
 
         public void ConfigureServices(IServiceCollection services)
@@ -86,10 +86,42 @@ namespace web_practice
                     context.Response.ContentType = "text/html; charset=utf-8";
                     context.Response.Headers["InCamp-Student"] = "Andrew Maslyuk";
                     await context.Response.WriteAsync(
-                            "Phrase");
+                        "");
                 });
 
             });
+
         }
+
+        
+
+        private String GetPhrase(StudentPhraseDto[] studentPhrases)
+        {
+            String result = "";
+
+            foreach (StudentPhraseDto studentPhrase in studentPhrases)
+            {
+                result += studentPhrase.GetWord();
+                result += " ";
+            }
+
+            return result;
+        }
+
+        private String GetResponseInfo(StudentPhraseDto[] studentPhrases)
+        {
+            String result = "";
+
+            foreach (StudentPhraseDto studentPhrase in studentPhrases)
+            {
+                result += (studentPhrase.GetWord() +
+                 "   - Received from: " +
+                  studentPhrase.GetStudentName() +
+                   "<br>");
+            }
+
+            return result;
+        }
+
     }
 }
