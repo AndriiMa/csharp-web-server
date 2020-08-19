@@ -18,7 +18,7 @@ namespace web_practice
 
         private Phrases phrases = new Phrases();
         private StudentPhraseMapper studentPhraseMapper = new StudentPhraseMapper();
-        private IPrintPhraseStrategy printStrategy;
+        private IPrintPhraseStrategy printStrategy = new PrintAsyncStrategy();
 
         public void ConfigureServices(IServiceCollection services)
         {
