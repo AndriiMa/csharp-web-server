@@ -1,0 +1,21 @@
+version: '3.6'
+
+services:
+
+  service1-api:
+    image: web-practice
+    container_name: service1
+    ports: 
+        - "5001:80"
+
+  service2-api:
+    image: web-practice
+    container_name: service2
+    ports: 
+        - "5002:80"
+
+  service3-api:
+    image: web-practice
+    container_name: service3
+    ports: 
+        - "5003:80"
