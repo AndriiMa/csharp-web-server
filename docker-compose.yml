@@ -5,7 +5,6 @@ services:
   service1-api:
     image: web-practice
     container_name: service1
-    domainname: service1-api
     hostname: service1-api
     deploy:
       resources:
@@ -17,7 +16,6 @@ services:
   service2-api:
     image: web-practice
     container_name: service2
-    domainname: service2-api
     hostname: service2-api
     deploy:
       resources:
@@ -29,7 +27,6 @@ services:
   service3-api:
     image: web-practice
     container_name: service3
-    domainname: service3-api
     hostname: service3-api
     deploy:
       resources:
