@@ -5,17 +5,29 @@ services:
   service1-api:
     image: web-practice
     container_name: service1
+    deploy:
+      resources:
+        limits:
+          memory: 50M
     ports: 
         - "5001:80"
 
   service2-api:
     image: web-practice
     container_name: service2
+    deploy:
+      resources:
+        limits:
+          memory: 50M
     ports: 
         - "5002:80"
 
   service3-api:
     image: web-practice
     container_name: service3
+    deploy:
+      resources:
+        limits:
+          memory: 50M
     ports: 
         - "5003:80"
