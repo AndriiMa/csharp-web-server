@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\devs\\incamp\\csharp-web-server\\web-practice.csproj": {}
+    "d:\\devs\\incamp\\csharp-web-server\\web-practice.csproj": {}
   },
   "projects": {
-    "D:\\devs\\incamp\\csharp-web-server\\web-practice.csproj": {
+    "d:\\devs\\incamp\\csharp-web-server\\web-practice.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\devs\\incamp\\csharp-web-server\\web-practice.csproj",
+        "projectUniqueName": "d:\\devs\\incamp\\csharp-web-server\\web-practice.csproj",
         "projectName": "web-practice",
-        "projectPath": "D:\\devs\\incamp\\csharp-web-server\\web-practice.csproj",
+        "projectPath": "d:\\devs\\incamp\\csharp-web-server\\web-practice.csproj",
         "packagesPath": "C:\\Users\\tenza\\.nuget\\packages\\",
-        "outputPath": "D:\\devs\\incamp\\csharp-web-server\\obj\\",
+        "outputPath": "d:\\devs\\incamp\\csharp-web-server\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\tenza\\AppData\\Roaming\\NuGet\\NuGet.Config"

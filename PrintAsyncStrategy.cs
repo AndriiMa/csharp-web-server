@@ -12,10 +12,10 @@ namespace web_practice
         {
             List<Task<WebResponse>> responses = new List<Task<WebResponse>>();
 
-            responses.Add(GetResponse("/who"));
-            responses.Add(GetResponse("/how"));
-            responses.Add(GetResponse("/does"));
-            responses.Add(GetResponse("/what"));
+            responses.Add(GetResponse("who"));
+            responses.Add(GetResponse("how"));
+            responses.Add(GetResponse("does"));
+            responses.Add(GetResponse("what"));
 
             return await Task.WhenAll(responses)
             .ContinueWith(async task => task.Result.Select(responses => responses)

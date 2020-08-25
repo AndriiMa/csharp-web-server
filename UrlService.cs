@@ -9,9 +9,9 @@ namespace web_practice
         private static Random rand = new Random();
 
         private static String[] url = {
-            "http://localhost:5001/",
-            "http://localhost:5002/",
-            "http://localhost:5003/"
+            "http://service1-api:5001",
+            "http://service2-api:5002",
+	        "http://service3-api:5003"
         };
 
         public static String GetRandomUrl(){
